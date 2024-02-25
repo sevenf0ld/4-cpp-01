@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 20:31:06 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/02/25 14:42:13 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/02/25 15:29:21 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 Zombie::Zombie(std::string arg)
 {
 	name = arg;
-	std::cout << name << "is \x1b[34m created.\x1b[m" << std::endl;
+	std::cout << name << " " << "is \x1b[34mcreated\x1b[m." << std::endl;
 }
 
 // destructor to print a msg along with `name` for debugging
 Zombie::~Zombie(void)
 {
-	std::cout << name << "is \x1b[34m destroyed.\x1b[m" << std::endl;
+	std::cout << name << " " << "is \x1b[34mdestroyed\x1b[m." << std::endl;
 }
 
 // member function of the Zombie class
