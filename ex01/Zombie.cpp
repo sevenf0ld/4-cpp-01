@@ -20,7 +20,8 @@
 Zombie::Zombie(std::string arg)
 {
 	name = arg;
-	std::cout << name << " " << "is \x1b[34mcreated (parameterized)\x1b[m." << std::endl;
+	std::cout << name << " "
+			  << "is \x1b[34mcreated (parameterized)\x1b[m." << std::endl;
 }
 
 /*
@@ -37,16 +38,19 @@ Zombie::Zombie(void)
 
 Zombie::~Zombie(void)
 {
-	std::cout << name << " " << "is \x1b[34mdestroyed\x1b[m." << std::endl;
+	std::cout << name << " "
+			  << "is \x1b[34mdestroyed\x1b[m." << std::endl;
 }
 
-void	Zombie::announce(void)
+void Zombie::announce(void)
 {
-	std::cout << name << ":" << " " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ":"
+			  << " "
+			  << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 // (default) constructor called only once when instantiating, Zombie needs a setter
-void	Zombie::set_name(std::string arg)
+void Zombie::set_name(std::string arg)
 {
 	name = arg;
 }

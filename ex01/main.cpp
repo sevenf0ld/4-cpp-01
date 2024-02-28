@@ -14,11 +14,11 @@
 
 int main(void)
 {
-	int	number;
+	int number;
 
 	number = 10;
 
-	Zombie*	horde_of_zombies = zombieHorde(number, "old");
+	Zombie *horde_of_zombies = zombieHorde(number, "old");
 	while (number--)
 		horde_of_zombies[number].announce();
 	number = 5;
@@ -27,5 +27,5 @@ int main(void)
 	number = 10;
 	while (number--)
 		horde_of_zombies[number].announce();
-	delete [] horde_of_zombies;
+	delete[] horde_of_zombies;
 }

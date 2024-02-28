@@ -16,9 +16,9 @@
  * allocate N Zombie objects in a single allocation
  * initialize the zombies, giving each one of them the name passed as paramete
  */
-Zombie*	zombieHorde(int N, std::string name)
+Zombie *zombieHorde(int N, std::string name)
 {
-	Zombie	*dynamic_zombies = new Zombie[N];
+	Zombie *dynamic_zombies = new Zombie[N];
 
 	while (N--)
 		dynamic_zombies[N].set_name(name);

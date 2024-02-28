@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	Zombie*	dynamic_zombie;
+	Zombie *dynamic_zombie;
 
 	dynamic_zombie = newZombie("dynamicStorage");
 	randomChump("automaticStorage");

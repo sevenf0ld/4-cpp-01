@@ -15,14 +15,14 @@
 
 class Zombie
 {
-	std::string	name;
+	std::string name;
 
-	public:
-		Zombie(std::string arg);
-		~Zombie();
+public:
+	Zombie(std::string arg);
+	~Zombie();
 
-		void	announce(void);
+	void announce(void);
 };
 
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);

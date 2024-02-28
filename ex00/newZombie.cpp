@@ -13,9 +13,9 @@
 #include "Zombie.hpp"
 
 // creates, names and returns it to use it outside of function scope
-Zombie*	newZombie(std::string name)
+Zombie *newZombie(std::string name)
 {
-	Zombie*	dynamic_zombie = new Zombie(name);
+	Zombie *dynamic_zombie = new Zombie(name);
 
 	return (dynamic_zombie);
 }

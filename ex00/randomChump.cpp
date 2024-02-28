@@ -13,9 +13,9 @@
 #include "Zombie.hpp"
 
 // creates, names and announces itself
-void	randomChump(std::string name)
+void randomChump(std::string name)
 {
-	Zombie	automatic_zombie(name);
+	Zombie automatic_zombie(name);
 
 	automatic_zombie.announce();
 }

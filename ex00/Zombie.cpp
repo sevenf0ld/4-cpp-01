@@ -20,17 +20,20 @@
 Zombie::Zombie(std::string arg)
 {
 	name = arg;
-	std::cout << name << " " << "is \x1b[34mcreated\x1b[m." << std::endl;
+	std::cout << name << " "
+			  << "is \x1b[34mcreated\x1b[m." << std::endl;
 }
 
 // destructor to print a msg along with `name` for debugging
 Zombie::~Zombie(void)
 {
-	std::cout << name << " " << "is \x1b[34mdestroyed\x1b[m." << std::endl;
+	std::cout << name << " "
+			  << "is \x1b[34mdestroyed\x1b[m." << std::endl;
 }
 
 // member function of the Zombie class
-void	Zombie::announce(void)
+void Zombie::announce(void)
 {
-	std::cout << name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": "
+			  << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
