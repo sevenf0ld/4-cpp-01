@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 13:56:48 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/02/28 19:37:35 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:24:54 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
  *
  * HumanA takes Weapon in the constructor
  * HumanA is always armed
+ *
+ * best to use a reference to Weapon because there is no way to rebind a reference to another object
+ * a reference is bounded to its initializer when defined so it must be initialized
  */
 class HumanA
 {

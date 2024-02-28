@@ -6,15 +6,16 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 18:18:28 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/02/28 19:57:31 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:05:11 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string arg)
+HumanB::HumanB(std::string arg_name)
 {
-	name = arg;
+	name = arg_name;
+	weapon_ptr = NULL;
 	std::cout << "\x1b[34mHumanB is created\x1b[m." << std::endl;
 }
 

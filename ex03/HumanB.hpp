@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:16:21 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/02/28 19:40:26 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:25:17 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@
  *
  * HumanB does not take Weapon in the constructor
  * HumanB is not always armed
+ *
+ * a pointer need not be initialized at the time it is defined
  */
 class HumanB
 {
-	std::string name;
 	Weapon *weapon_ptr;
+	std::string name;
 
 public:
-	HumanB(std::string arg);
+	HumanB(std::string arg_name);
 	~HumanB();
 
 	void attack(void);
