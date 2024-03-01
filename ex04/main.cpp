@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 09:55:38 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/02/29 13:14:52 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/01 12:47:44 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@
 	std::ifstream	input_file(infile.c_str(), std::ios::in);
 
 	//To check if a file stream was successful opening a file, you can do it by calling to member is_open. This member function returns a bool value of true in the case that indeed the stream object is associated with an open file
-	if (!input_file.is_open()) // alt if (!input_file)
+	//if (!input_file.is_open()) // (!input_file) or (!input_file.good()) bc `failbit` is set if `open` fails
+	if (!input_file)
 	{
 		std::cerr << "Failed to open " << infile << "." << std::endl;
 		return (1);
@@ -69,9 +70,33 @@ int	main(int argc, char **argv)
 		std::cerr << "Usage: ./sed [filename] [displaced_string] [replacement_string]" << std::endl;
 		return (1);
 	}
-	if (read_from_file(argv[1]) == 1)
-		return (1);
-	if (write_to_file(argv[1]) == 1)
-		return (1);
 
+	//defined in block scope so when the `fstream` object goes out of scope,file it is bound to is automatically closed because the fstream object is destroyed
+	//if (read_from_file(argv[1]) == 1)
+	//	return (1);
+	//if (write_to_file(argv[1]) == 1)
+	//	return (1);
+
+	std::ifstream	input_file(argv[1]);
+	if (!input_file)
+	{
+		std::cerr << "Failed to open " << argv[1] << "." << std::endl;
+		return (1);
+	}
+
+	std::string	outfile;
+	outfile = argv[1];
+	//error: request for member ‘append’ in ‘*(argv + 8)’, which is of non-class type ‘char*’
+	//outfile = argv[1].append(".replace");
+	outfile = outfile.append(".replace");
+	std::ofstream	output_file(outfile.c_str());
+	if (!output_file)
+	{
+		std::cerr << "Failed to create " << outfile << "." << std::endl;
+		return (1);
+	}
+
+	output_file << "writing to this file test 1" << std::endl;
+
+	return (0);
 }
