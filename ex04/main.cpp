@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 09:55:38 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/03/01 12:47:44 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:17:13 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ int	write_to_file(std::string infile)
 	return (0);
 }
 
+int	find_needle(std::string needle, std::string haystack)
+{
+	std::size_t	found;
+
+	found = haystack.find(needle, 0);
+	if (found == std::string::npos)
+		return (-1);
+	return (found);
+}
+
 int	main(int argc, char **argv)
 {
 	if (argc != 4)
@@ -86,8 +96,6 @@ int	main(int argc, char **argv)
 
 	std::string	outfile;
 	outfile = argv[1];
-	//error: request for member ‘append’ in ‘*(argv + 8)’, which is of non-class type ‘char*’
-	//outfile = argv[1].append(".replace");
 	outfile = outfile.append(".replace");
 	std::ofstream	output_file(outfile.c_str());
 	if (!output_file)
@@ -96,7 +104,35 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
-	output_file << "writing to this file test 1" << std::endl;
+	std::string	line;
+	int	pos;
+	std::string	needle;
+	std::string	before;
+	std::string	after;
+	std::string	repl;
+
+	std::getline(input_file, line);
+	pos = -1;
+	needle = argv[2];
+	while (input_file.good())
+	{
+		pos = find_needle(needle, line);
+		if (pos != -1)
+		{
+			before = line.substr(0, pos);
+			after = line.substr(pos + needle.length());
+			repl = before + "ROW_YOUR_BOAT" + after;
+			std::cout << "before: " << before << std::endl;
+			std::cout << "found: " << line.substr(pos, needle.length()) << std::endl;
+			std::cout << "after: " << after << std::endl;
+			std::cout << "repl: " << repl << std::endl;
+
+			output_file << repl << std::endl;
+		}
+		else
+			output_file << line << std::endl;
+		std::getline(input_file, line);
+	}
 
 	return (0);
 }
