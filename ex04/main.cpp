@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 09:55:38 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/03/01 20:01:44 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/02 12:20:35 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_replace(std::string line, std::string needle, std::ofstream &out)
 
 	pos = find_needle(needle, line);
 	repl = line;
+	//if (pos != -1)
 	while (pos != -1)
 	{
 		before = line.substr(0, pos);
@@ -90,8 +91,23 @@ void	ft_replace(std::string line, std::string needle, std::ofstream &out)
 		//std::cout << "before: " << before << std::endl;
 		//std::cout << "found: " << line.substr(pos, needle.length()) << std::endl;
 		//std::cout << "after: " << after << std::endl;
-		//std::cout << "repl: " << repl << std::endl;
-		pos = find_needle(needle, line);
+		std::cout << "repl: " << repl << std::endl;
+
+		pos = find_needle(needle, repl);
+		line = repl;
+		/*
+		if (pos != -1)
+		{
+			std::cout << "check next needle: " << repl.substr(find_needle(needle, repl)) << std::endl;
+			before = repl.substr(0, pos);
+			after = repl.substr(pos + needle.length());
+			repl = before + "ROW_YOUR_BOAT" + after;
+			std::cout << "		before: " << before << std::endl;
+			std::cout << "		found: " << repl.substr(pos, needle.length()) << std::endl;
+			std::cout << "		after: " << after << std::endl;
+			std::cout << "		repl: " << repl << std::endl;
+		}
+		*/
 	}
 	out << repl << std::endl;
 }
