@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 09:55:38 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/03/02 12:20:35 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/02 12:27:56 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	find_needle(std::string needle, std::string haystack)
 	return (found);
 }
 
-void	ft_replace(std::string line, std::string needle, std::ofstream &out)
+void	ft_replace(std::string line, std::string needle, std::ofstream &out, std::string sub)
 {
 	int	pos;
 	std::string	before;
@@ -82,32 +82,13 @@ void	ft_replace(std::string line, std::string needle, std::ofstream &out)
 
 	pos = find_needle(needle, line);
 	repl = line;
-	//if (pos != -1)
 	while (pos != -1)
 	{
 		before = line.substr(0, pos);
 		after = line.substr(pos + needle.length());
-		repl = before + "ROW_YOUR_BOAT" + after;
-		//std::cout << "before: " << before << std::endl;
-		//std::cout << "found: " << line.substr(pos, needle.length()) << std::endl;
-		//std::cout << "after: " << after << std::endl;
-		std::cout << "repl: " << repl << std::endl;
-
+		repl = before + sub + after;
 		pos = find_needle(needle, repl);
 		line = repl;
-		/*
-		if (pos != -1)
-		{
-			std::cout << "check next needle: " << repl.substr(find_needle(needle, repl)) << std::endl;
-			before = repl.substr(0, pos);
-			after = repl.substr(pos + needle.length());
-			repl = before + "ROW_YOUR_BOAT" + after;
-			std::cout << "		before: " << before << std::endl;
-			std::cout << "		found: " << repl.substr(pos, needle.length()) << std::endl;
-			std::cout << "		after: " << after << std::endl;
-			std::cout << "		repl: " << repl << std::endl;
-		}
-		*/
 	}
 	out << repl << std::endl;
 }
@@ -144,13 +125,10 @@ int	main(int argc, char **argv)
 	}
 
 	std::string	line;
-	std::string	needle;
-
 	std::getline(input_file, line);
-	needle = argv[2];
 	while (input_file.good())
 	{
-		ft_replace(line, needle, output_file);
+		ft_replace(line, argv[2], output_file, argv[3]);
 		std::getline(input_file, line);
 	}
 
