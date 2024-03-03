@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -pedantic
 
 CPPFLAGS = -I./
 
-SRCS = main.cpp
+SRCS = main.cpp ft_replace.cpp
 	   
 OBJS = $(SRCS:.cpp=.o)
 
