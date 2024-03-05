@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:49 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/03/04 17:07:32 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:54:12 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ public:
 
 	void	complain(std::string level);
 };
+
+typedef void	(Harl::*Harl_pmf)(void);
 
 enum complaints
 {

@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:11:47 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/03/04 17:07:19 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:01:02 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,22 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
+	Harl_pmf	ptr;
+
 	switch (hash_level(level))
 	{
 		case DEBUG:
-			this->debug();
+			ptr = &Harl::debug;
+			(this->*ptr)();
 		case INFO:
-			this->info();
+			ptr = &Harl::info;
+			(this->*ptr)();
 		case WARNING:
-			this->warning();
+			ptr = &Harl::warning;
+			(this->*ptr)();
 		case ERROR:
-			this->error();
+			ptr = &Harl::error;
+			(this->*ptr)();
 			break ;
 		default:
 			std::cerr << "[ Probably complaining about insignificant problems ]" << std::endl;

@@ -6,7 +6,7 @@
 #    By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/04 14:26:05 by maiman-m          #+#    #+#              #
-#    Updated: 2024/03/06 00:13:42 by maiman-m         ###   ########.fr        #
+#    Updated: 2024/03/06 00:37:16 by maiman-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = harlFilter
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -pedantic -Wno-implicit-fallthrough
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -pedantic
 
 CPPFLAGS = -I./
 
