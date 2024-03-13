@@ -11,23 +11,23 @@
 /* ************************************************************************** */
 
 #ifndef HARL_HPP
-# define HARL_HPP
+#define HARL_HPP
 
 #include <string>
 #include <iostream>
 
 class Harl
 {
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 
 public:
 	Harl();
 	~Harl();
 
-	void	complain(std::string level);
+	void complain(std::string level);
 };
 
 /*
@@ -38,7 +38,7 @@ public:
  * set a member function pointer to point to a member function
  * Harl_pmf is a pointer-to-member-function of class Harl
  */
-typedef void	(Harl::*Harl_pmf)(void);
+typedef void (Harl::*Harl_pmf)(void);
 
 enum complaints
 {
@@ -49,6 +49,6 @@ enum complaints
 	INVALID = -1
 };
 
-complaints		hash_level(std::string level);
+complaints hash_level(std::string level);
 
 #endif

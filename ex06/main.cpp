@@ -16,13 +16,14 @@
  * takes one of the four levels as program parameter
  * display all msgs from said level and above
  */
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	Harl	whiner;
+	Harl whiner;
 
 	if (argc != 2)
 	{
-		std::cerr << AC_RED << "Usage: ./harlFilter [OPTIONS]" << std::endl << "OPTIONS: DEBUG, INFO, WARNING, ERROR" << std::endl;
+		std::cerr << AC_RED << "Usage: ./harlFilter [OPTIONS]" << std::endl
+				  << "OPTIONS: DEBUG, INFO, WARNING, ERROR" << std::endl;
 		return (1);
 	}
 	whiner.complain(argv[1]);

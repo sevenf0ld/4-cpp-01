@@ -11,38 +11,40 @@
 /* ************************************************************************** */
 
 #ifndef HARL_HPP
-# define HARL_HPP
+#define HARL_HPP
 
-# define AC_BLACK "\x1b[30m"
-# define AC_RED "\x1b[31m"
-# define AC_GREEN "\x1b[32m"
-# define AC_YELLOW "\x1b[33m"
-# define AC_BLUE "\x1b[34m"
-# define AC_MAGENTA "\x1b[35m"
-# define AC_CYAN "\x1b[36m"
-# define AC_WHITE "\x1b[37m"
-# define AC_NORMAL "\x1b[m"
+#define AC_BLACK "\x1b[30m"
+#define AC_RED "\x1b[31m"
+#define AC_GREEN "\x1b[32m"
+#define AC_YELLOW "\x1b[33m"
+#define AC_BLUE "\x1b[34m"
+#define AC_MAGENTA "\x1b[35m"
+#define AC_CYAN "\x1b[36m"
+#define AC_WHITE "\x1b[37m"
+#define AC_NORMAL "\x1b[m"
 
-# define FORMAT_COMPLAINT(level, str) (std::cout << AC_CYAN << "[ " << level << " ]" << AC_NORMAL << std::endl << str << std::endl << std::endl);
+#define FORMAT_COMPLAINT(level, str) (std::cout << AC_CYAN << "[ " << level << " ]" << AC_NORMAL << std::endl \
+												<< str << std::endl                                           \
+												<< std::endl);
 
 #include <string>
 #include <iostream>
 
 class Harl
 {
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
 
 public:
 	Harl();
 	~Harl();
 
-	void	complain(std::string level);
+	void complain(std::string level);
 };
 
-typedef void	(Harl::*Harl_pmf)(void);
+typedef void (Harl::*Harl_pmf)(void);
 
 enum complaints
 {
@@ -53,6 +55,6 @@ enum complaints
 	INVALID = -1
 };
 
-complaints		hash_level(std::string level);
+complaints hash_level(std::string level);
 
 #endif

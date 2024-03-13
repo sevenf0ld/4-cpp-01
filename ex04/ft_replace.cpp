@@ -20,22 +20,22 @@
  *
  * int	read_from_file(const char *infile)
  */
- int	read_from_file(std::string infile)
+int read_from_file(std::string infile)
 {
-	//Creates an unbound file stream. fstream is one of the types defined in the fstream header.
-	//std::ifstream	input_file;
+	// Creates an unbound file stream. fstream is one of the types defined in the fstream header.
+	// std::ifstream	input_file;
 
-	//Opens the file named by the s and binds that file to fstrm. s can be a string or a pointer to a C-style character string, opens s in the given mode.
-	//input_file.open(argv[1], std::ios::in);
+	// Opens the file named by the s and binds that file to fstrm. s can be a string or a pointer to a C-style character string, opens s in the given mode.
+	// input_file.open(argv[1], std::ios::in);
 
-	//For ifstream and ofstream classes, ios::in and ios::out are automatically and respectively assumed, even if a mode that does not include them is passed as second argument to the open member function (the flags are combined).
-	//input_file.open(argv[1]);
+	// For ifstream and ofstream classes, ios::in and ios::out are automatically and respectively assumed, even if a mode that does not include them is passed as second argument to the open member function (the flags are combined).
+	// input_file.open(argv[1]);
 
-	//Creates an fstream and opens the file named s. s can have type string or can be a pointer to a C-style character string (§ 3.5.4, p. 122). The default file mode depends on the type of fstream.
-	//std::ifstream	input_file(infile, std::ios::in);
-	std::ifstream	input_file(infile.c_str(), std::ios::in);
+	// Creates an fstream and opens the file named s. s can have type string or can be a pointer to a C-style character string (§ 3.5.4, p. 122). The default file mode depends on the type of fstream.
+	// std::ifstream	input_file(infile, std::ios::in);
+	std::ifstream input_file(infile.c_str(), std::ios::in);
 
-	//if (!input_file.is_open()) // (!input_file) or (!input_file.good()) bc `failbit` is set if `open` fails
+	// if (!input_file.is_open()) // (!input_file) or (!input_file.good()) bc `failbit` is set if `open` fails
 	if (!input_file)
 	{
 		std::cerr << "Failed to open " << infile << "." << std::endl;
@@ -44,12 +44,12 @@
 	return (0);
 }
 
-int	write_to_file(std::string infile)
+int write_to_file(std::string infile)
 {
-	std::string	outfile;
+	std::string outfile;
 
 	outfile = infile.append(".replace");
-	std::ofstream	output_file(outfile.c_str(), std::ios::out);
+	std::ofstream output_file(outfile.c_str(), std::ios::out);
 	if (!output_file.is_open())
 	{
 		std::cerr << "Failed to create " << outfile << "." << std::endl;
@@ -58,23 +58,23 @@ int	write_to_file(std::string infile)
 	return (0);
 }
 
-static int	find_needle(std::string needle, std::string haystack)
+static int find_needle(std::string needle, std::string haystack)
 {
-	std::size_t	found;
+	std::size_t found;
 
 	found = haystack.find(needle, 0);
-	//returns size_t of npos (last element) in the string if not found
+	// returns size_t of npos (last element) in the string if not found
 	if (found == std::string::npos)
 		return (-1);
 	return (found);
 }
 
-void	ft_replace(std::string line, std::string needle, std::ofstream &outfile, std::string sub)
+void ft_replace(std::string line, std::string needle, std::ofstream &outfile, std::string sub)
 {
-	int	pos;
-	std::string	before;
-	std::string	after;
-	std::string	repl;
+	int pos;
+	std::string before;
+	std::string after;
+	std::string repl;
 
 	pos = find_needle(needle, line);
 	repl = line;

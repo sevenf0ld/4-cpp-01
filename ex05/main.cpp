@@ -12,9 +12,9 @@
 
 #include "Harl.hpp"
 
-int	main(void)
+int main(void)
 {
-	Harl	whiner;
+	Harl whiner;
 
 	whiner.complain("DEBUG");
 	whiner.complain("INFO");
