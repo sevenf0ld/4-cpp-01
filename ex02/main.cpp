@@ -6,7 +6,7 @@
 /*   By: maiman-m <maiman-m@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 15:59:25 by maiman-m          #+#    #+#             */
-/*   Updated: 2024/02/26 21:46:03 by maiman-m         ###   ########.fr       */
+/*   Updated: 2024/03/17 12:16:52 by maiman-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,30 @@ int main(void)
 	std::cout << "The value of stringPTR is: " << *stringPTR << std::endl;
 	std::cout << "The value of stringREF is: " << stringREF << std::endl;
 }
+
+/*
+[a] = hello
+[b] = world
+[x] = (ref)
+
+assign x-ref to a;
+
+[a] = hello (link)
+[b] = world
+[a] = hello (link)
+
+assign a = b
+[a] = world (link)
+[b] = world
+[a] = world (link)
+
+rebinding example
+assign x ref to b
+[a] = world
+[b] = world (link)
+[b] = world (link)
+
+but you couldn't do that because x has became a
+and a is a std::string; it is not a pointer / ref
+anymore.
+*/
